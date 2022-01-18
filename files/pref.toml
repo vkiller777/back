@@ -213,7 +213,7 @@ update_ruleset_on_request = false
 # interval = 86400
 
 [[rulesets]]
-import = "snippets/ruleset.toml"
+import = "snippets/rulesets.toml"
 
 [template]
 template_path = ""
