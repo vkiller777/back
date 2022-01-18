@@ -37,7 +37,7 @@ jobs:
       id: get_sha
       uses: mego22/actions-git-sha@main
       with:
-        repo: "https://github.com/tindy2013/subconverter.git"
+        repo: "https://github.com/vkiller777/subconverter.git"
     - name: Update Version
       run: |
         export TZ='Asia/Shanghai'
