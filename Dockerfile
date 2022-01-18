@@ -36,15 +36,15 @@ RUN apk add --no-cache --virtual .build-tools git g++ build-base linux-headers c
     git describe --exact-match HEAD || (sha=$(git rev-parse --short HEAD) && sed -i 's/\(v[0-9]\.[0-9]\.[0-9]\)/\1-'"$sha"'/' src/version.h) ;\
     cmake -DCMAKE_BUILD_TYPE=Release . && \
     make -j4 && \
-    mv subc /usr/bin && \
+    mv subconverter /usr/bin && \
     mv base ../ && \
     cd .. && \
-    rm -rf subc quickjspp libcron toml11 && \
-    apk add --no-cache --virtual subc-deps pcre2 libcurl yaml-cpp libevent && \
+    rm -rf subconverter quickjspp libcron toml11 && \
+    apk add --no-cache --virtual subconverter-deps pcre2 libcurl yaml-cpp libevent && \
     apk del .build-tools .build-deps
 
 COPY files/ /base/
 # set entry
 WORKDIR /base
 EXPOSE 25500
-CMD subc
+CMD subconverter
