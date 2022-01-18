@@ -31,20 +31,20 @@ RUN apk add --no-cache --virtual .build-tools git g++ build-base linux-headers c
     cmake . && \
     make install -j4 && \
     cd .. && \
-    git clone https://github.com/vkiller777/subconverter --depth=1 && \
-    cd subconverter && \
+    git clone https://github.com/vkiller777/subc --depth=1 && \
+    cd subc && \
     git describe --exact-match HEAD || (sha=$(git rev-parse --short HEAD) && sed -i 's/\(v[0-9]\.[0-9]\.[0-9]\)/\1-'"$sha"'/' src/version.h) ;\
     cmake -DCMAKE_BUILD_TYPE=Release . && \
     make -j4 && \
-    mv subconverter /usr/bin && \
+    mv subc /usr/bin && \
     mv base ../ && \
     cd .. && \
-    rm -rf subconverter quickjspp libcron toml11 && \
-    apk add --no-cache --virtual subconverter-deps pcre2 libcurl yaml-cpp libevent && \
+    rm -rf subc quickjspp libcron toml11 && \
+    apk add --no-cache --virtual subc-deps pcre2 libcurl yaml-cpp libevent && \
     apk del .build-tools .build-deps
 
 COPY files/ /base/
 # set entry
 WORKDIR /base
 EXPOSE 25500
-CMD subconverter
+CMD subc
