@@ -1,6 +1,3 @@
-FROM alpine:3.13
-ADD https://github.com/tindy2013/subconverter/commits/master.atom cache_bust
-
 # build minimized
 WORKDIR /
 RUN apk add --no-cache --virtual .build-tools git g++ build-base linux-headers cmake && \
