@@ -1,5 +1,5 @@
 FROM alpine:3.13
-# build minimized
+# build minimize
 WORKDIR /
 RUN apk add --no-cache --virtual .build-tools git g++ build-base linux-headers cmake && \
     apk add --no-cache --virtual .build-deps curl-dev rapidjson-dev libevent-dev pcre2-dev yaml-cpp-dev && \
